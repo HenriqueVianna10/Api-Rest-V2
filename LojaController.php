@@ -1,7 +1,7 @@
 <?php
 
-include_once('./model/Loja.php');
-include_once('./DAO/LojaDAO.php');
+include_once('Loja.php');
+include_once('LojaDAO.php');
 
 class LojaController {
 
@@ -9,8 +9,7 @@ class LojaController {
         $dao= new LojaDAO;    
         $lojas = $dao->listar();
     
-        return $response->withJSON($lojas);
-    
+        return $response->withJson($lojas); 
     }
 
     public function inserir($request, $response, $args) {
