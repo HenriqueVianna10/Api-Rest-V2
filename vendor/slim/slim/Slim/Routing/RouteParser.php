@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Slim Framework (https://slimframework.com)
  *
@@ -15,12 +14,6 @@ use InvalidArgumentException;
 use Psr\Http\Message\UriInterface;
 use Slim\Interfaces\RouteCollectorInterface;
 use Slim\Interfaces\RouteParserInterface;
-
-use function array_key_exists;
-use function array_reverse;
-use function http_build_query;
-use function implode;
-use function is_string;
 
 class RouteParser implements RouteParserInterface
 {

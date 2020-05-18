@@ -64,7 +64,7 @@
     		$comando->execute();
             $lojas=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
-			    $lojas[] = new Loja($row->id,$row->nome);
+			    $lojas[] = new Loja($row->id,$row->nome,$row->telefone,$row->endereco);
             }
             return $lojas;
         }
@@ -74,10 +74,10 @@
  		    $query = 'SELECT * FROM loja WHERE id=:id';		
             $pdo = PDOFactory::getConexao(); 
 		    $comando = $pdo->prepare($query);
-		    $comando->bindParam ('id', $id);
+            $comando->bindParam ('id', $id);
 		    $comando->execute();
 		    $result = $comando->fetch(PDO::FETCH_OBJ);
-		    return new Loja($result->id,$result->nome);           
+		    return new Loja($result->id,$result->nome,$result->telefone,$result->endereco);           
         }
     }
 ?>

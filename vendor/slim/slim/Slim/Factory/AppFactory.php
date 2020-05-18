@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Slim Framework (https://slimframework.com)
  *
@@ -180,8 +179,7 @@ class AppFactory
         ResponseFactoryInterface $responseFactory,
         StreamFactoryInterface $streamFactory
     ): ResponseFactoryInterface {
-        if (
-            static::$slimHttpDecoratorsAutomaticDetectionEnabled
+        if (static::$slimHttpDecoratorsAutomaticDetectionEnabled
             && SlimHttpPsr17Factory::isResponseFactoryAvailable()
         ) {
             return SlimHttpPsr17Factory::createDecoratedResponseFactory($responseFactory, $streamFactory);

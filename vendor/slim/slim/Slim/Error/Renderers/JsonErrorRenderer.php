@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Slim Framework (https://slimframework.com)
  *
@@ -13,12 +12,6 @@ namespace Slim\Error\Renderers;
 use Slim\Error\AbstractErrorRenderer;
 use Throwable;
 
-use function get_class;
-use function json_encode;
-
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-
 /**
  * Default Slim application JSON Error Renderer
  */
@@ -31,7 +24,7 @@ class JsonErrorRenderer extends AbstractErrorRenderer
      */
     public function __invoke(Throwable $exception, bool $displayErrorDetails): string
     {
-        $error = ['message' => $this->getErrorTitle($exception)];
+        $error = ['message' => $exception->getMessage()];
 
         if ($displayErrorDetails) {
             $error['exception'] = [];

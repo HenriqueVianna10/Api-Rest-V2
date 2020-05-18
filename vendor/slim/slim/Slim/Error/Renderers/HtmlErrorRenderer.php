@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Slim Framework (https://slimframework.com)
  *
@@ -13,10 +12,6 @@ namespace Slim\Error\Renderers;
 use Slim\Error\AbstractErrorRenderer;
 use Throwable;
 
-use function get_class;
-use function htmlentities;
-use function sprintf;
-
 /**
  * Default Slim application HTML Error Renderer
  */
@@ -29,15 +24,17 @@ class HtmlErrorRenderer extends AbstractErrorRenderer
      */
     public function __invoke(Throwable $exception, bool $displayErrorDetails): string
     {
+        $title = 'Slim Application Error';
+
         if ($displayErrorDetails) {
             $html = '<p>The application could not run because of the following error:</p>';
             $html .= '<h2>Details</h2>';
             $html .= $this->renderExceptionFragment($exception);
         } else {
-            $html = "<p>{$this->getErrorDescription($exception)}</p>";
+            $html = '<p>A website error has occurred. Sorry for the temporary inconvenience.</p>';
         }
 
-        return $this->renderHtmlBody($this->getErrorTitle($exception), $html);
+        return $this->renderHtmlBody($title, $html);
     }
 
     /**
