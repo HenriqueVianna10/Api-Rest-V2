@@ -45,6 +45,7 @@
             $response = new Response();
             $token = $request->getHeader('Authorization');
             
+            
             if($token && $token[0])
             {
                 try {
@@ -55,11 +56,9 @@
                         return($response);
                     }
                 } catch(Exception $error) {
-
                     return $response->withStatus(401);
                 }
-            }
-            
+            }           
             return $response->withStatus(401);
         }
     }

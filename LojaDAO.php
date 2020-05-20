@@ -13,8 +13,8 @@
             $comando->bindParam(":telefone",$loja->telefone);
             $comando->bindParam(":endereco",$loja->endereco);
             $comando->execute();
-            $produto->id = $pdo->lastInsertId();
-            return $produto;
+            $loja->id = $pdo->lastInsertId();
+            return $loja;
         }
 
         public function deletar($id)
