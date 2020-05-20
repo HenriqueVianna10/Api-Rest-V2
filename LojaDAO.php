@@ -6,15 +6,16 @@
     {
         public function inserir(Loja $loja)
         {
-            $qInserir = "INSERT INTO loja(nome,telefone,endereco) VALUES (:nome,:telefone,:endereco)";            
+            $qInserir = "INSERT INTO funcionario(nome,telefone,endereco)
+             VALUES (:nome,:telefone,:endereco)";            
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qInserir);
             $comando->bindParam(":nome",$loja->nome);
             $comando->bindParam(":telefone",$loja->telefone);
             $comando->bindParam(":endereco",$loja->endereco);
             $comando->execute();
-            $produto->id = $pdo->lastInsertId();
-            return $produto;
+            $loja->id = $pdo->lastInsertId();
+            return $loja;
         }
 
         public function deletar($id)
