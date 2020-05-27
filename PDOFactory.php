@@ -8,7 +8,7 @@
             if(!isset($pdo)){
                 $conexao = "mysql:host=localhost;dbname=api";
                 $usuario = "root";
-                $senha = "12345";
+                $senha = "";
 
                 $pdo = new PDO($conexao, $usuario, $senha); 
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

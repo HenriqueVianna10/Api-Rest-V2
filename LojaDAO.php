@@ -6,7 +6,8 @@
     {
         public function inserir(Loja $loja)
         {
-            $qInserir = "INSERT INTO loja(nome,telefone,endereco) VALUES (:nome,:telefone,:endereco)";            
+            $qInserir = "INSERT INTO funcionario(nome,telefone,endereco)
+             VALUES (:nome,:telefone,:endereco)";            
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qInserir);
             $comando->bindParam(":nome",$loja->nome);
